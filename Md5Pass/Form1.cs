@@ -23,7 +23,7 @@ namespace Md5Pass
                 using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
                     ICryptoTransform transform = tripDes.CreateEncryptor();
-                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    byte[] results = transform.TransformFinalBlock(data,0, data.Length);
                     txtDecrypt.Text = Convert.ToBase64String(results, 0, results.Length);
                 }
             }
@@ -40,7 +40,7 @@ namespace Md5Pass
                 using (TripleDESCryptoServiceProvider tripDes = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
                 {
                     ICryptoTransform transform = tripDes.CreateDecryptor();
-                    byte[] results = transform.TransformFinalBlock(data, 0, data.Length);
+                    byte[] results = transform.TransformFinalBlock(data,0, data.Length);
                     txtHash.Text = UTF8Encoding.UTF8.GetString(results);
                 }
             }
